@@ -10,3 +10,6 @@
 
 ## Page3
 * rails generate controller home top
+
+## Page4
+* home/top.html.erbを編集
