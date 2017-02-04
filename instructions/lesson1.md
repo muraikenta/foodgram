@@ -7,3 +7,6 @@
 * rails new foodgram
 * rails s
 * ブラウザにlocalhost:3000
+
+## Page3
+* rails generate controller home top
