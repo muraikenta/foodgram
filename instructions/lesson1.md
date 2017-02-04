@@ -20,3 +20,6 @@
 ## Page6
 * routes.rbの中身を確認
 * localhost:3000/helloでエラーが表示されることを確認
+
+## Page7
+* routes.rbを編集して、'/top'でアクセスできるように
