@@ -13,3 +13,6 @@
 
 ## Page4
 * home/top.html.erbを編集
+
+## Page5
+* home_controller.rbの中身を確認
