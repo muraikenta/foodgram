@@ -16,3 +16,7 @@
 
 ## Page5
 * home_controller.rbの中身を確認
+
+## Page6
+* routes.rbの中身を確認
+* localhost:3000/helloでエラーが表示されることを確認
