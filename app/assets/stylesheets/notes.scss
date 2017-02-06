@@ -1,0 +1,35 @@
+/* notes/index ================================ */
+.notes-index {
+  padding: 50px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.note {
+  width: 350px;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid rgba(194, 203, 208, 0.36);;
+}
+
+.note img {
+  width: 100%;
+}
+
+.note h3 {
+  margin: 10px 0 15px;
+}
+
+@media (max-width: 600px) {
+  .notes-index {
+    padding: 0;
+  }
+}
+
+/* notes/show ================================ */
+.note-show {
+  padding-top: 50px;
+  text-align: center;
+}

@@ -51,67 +51,34 @@ p {
 }
 
 /* ヘッダー ================================ */
-.navbar {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-  top: 0;
-  right: 0;
-  left: 0;
-  position: fixed;
-  margin-bottom: 20px;
+header {
+  padding: 0 30px;
+  border-bottom: 1px solid gray;
+  height: 75px;
 }
 
-#logo {
+.header-logo {
   float: left;
-  font-size: 1.7em;
-  padding-top: 12px;
-  letter-spacing: -1px;
-  font-weight: bold;
 }
 
-#logo a {
-  color: #fff;
+.header-logo img {
+  height: 75px;
 }
 
-#logo a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-.header-right {
+.header-menus {
   float: right;
-  margin: 0 auto;
 }
 
-.header-right a {
-  color: white;
-  display: block;
-  text-decoration: none;
-}
-
-.header-right li {
-  line-height: 65px;
-  padding: 0 18px;
+.header-menus li {
   float: left;
-  color: white;
 }
 
-.vertical-line {
-  height: 22px;
-  margin-top: 22px;
-  margin-right: -36px;
-  border-left: 1px solid rgba(255, 255, 255, 0.8);
+.header-menus a {
+  padding: 0 20px;
+  float: left;
+  line-height: 75px;
 }
 
-.link-bg {
-  background-color: rgba(255, 255, 255, 0.3);
-  transition: all 0.5s;
-}
-
-.link-bg:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
 
 /* フッター ================================ */
 footer {
