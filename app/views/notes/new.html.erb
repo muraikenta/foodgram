@@ -1,0 +1,12 @@
+<div class="notes-new">
+  <div class="notes-form">
+    <div class="form-header">新規登録</div>
+    <%= form_tag '/notes' do %>
+      <h2>タイトル</h2>
+      <input name="title">
+      <h2>内容</h2>
+      <textarea name="content"></textarea>
+      <input type="submit" value="保存">
+    <% end %>
+  </div>
+</div>

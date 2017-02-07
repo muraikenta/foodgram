@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -15,7 +16,8 @@
       </div>
       <ul class="header-menus">
         <li><a href="/about">ABOUT</a></li>
-        <li><a href="/notes/index">投稿一覧</a></li>
+        <li><a href="/notes/index"><span class="fa fa-picture-o"></span>投稿一覧</a></li>
+        <li><a href="/notes/new"><span class="fa fa-edit"></span>新規投稿</a></li>
       </ul>
     </header>
 
