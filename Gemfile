@@ -17,10 +17,12 @@ gem 'jquery-rails', '4.2.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '5.0.1'
 
-gem 'byebug', '9.0.6', platform: :mri
+group :development do
+  gem 'byebug', '9.0.6', platform: :mri
 
-gem 'web-console', '3.4.0'
-gem 'listen', '3.0.8'
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', '2.0.1'
-gem 'spring-watcher-listen', '2.0.1'
+  gem 'web-console', '3.4.0'
+  gem 'listen', '3.0.8'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring', '2.0.1'
+  gem 'spring-watcher-listen', '2.0.1'
+end
