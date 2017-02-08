@@ -6,20 +6,24 @@
   margin: 0 auto;
 }
 
-.note {
+.notes-index .note {
+  overflow: hidden;
   width: 350px;
+  height: 430px;
   display: inline-block;
   margin: 10px;
-  text-align: center;
+  text-align: left;
   border: 1px solid rgba(194, 203, 208, 0.36);
 }
 
-.note img {
-  width: 100%;
+.notes-index .note img {
+  height: 350px;
+  min-width: 100%;
 }
 
-.note h3 {
-  margin: 10px 0 15px;
+.notes-index .note h3 {
+  margin: 10px 10px 15px;
+  line-height: 1.2;
 }
 
 @media (max-width: 600px) {
@@ -30,9 +34,23 @@
 
 /* notes/show ================================ */
 .note-show {
+  width: 700px;
+  margin: 0 auto;
   padding: 100px;
   padding-top: 50px;
   text-align: center;
+}
+
+.note-show .note {
+  overflow: hidden;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.note-show .note img {
+  width: 500px;
+  height: 500px;
 }
 
 .note-show form {
@@ -48,6 +66,13 @@
   margin-left: 10px;
 }
 
+@media (max-width: 700px) {
+  .note-show {
+    width: 100%;
+    padding: 0;
+  }
+}
+
 /* notes/show ================================ */
 .notes-new {
   padding: 50px;
@@ -55,22 +80,26 @@
   height: 100%;
 }
 
-.notes-form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.notes-form form {
-  padding: 50px;
-  background: white;
-  box-shadow: 1px 5px 20px 0px rgba(128, 128, 128, 0.34)
-}
-
 .form-header {
   color: white;
   background: #060629;
   padding: 20px;
   text-align: center;
+}
+
+.notes-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-body {
+  padding: 50px;
+  background: white;
+  box-shadow: 1px 5px 20px 0px rgba(128, 128, 128, 0.34)
+}
+
+.form-error {
+  color: indianred;
 }
 
 .notes-form input {

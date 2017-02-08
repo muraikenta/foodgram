@@ -8,12 +8,23 @@ class NotesController < ApplicationController
   end
 
   def new
+    @note = Note.new
   end
 
   def create
     @note = Note.new(title: params[:title], content: params[:content])
-    @note.save
-    redirect_to "/notes/#{@note.id}"
+    file = params[:image]
+    if file
+      @note.image = "/note_images/#{SecureRandom.urlsafe_base64}"
+      File.binwrite("public/#{@note.image}", file.read)
+    end
+
+    if @note.save
+      flash[:notice] = '投稿を作成しました'
+      redirect_to "/notes/#{@note.id}"
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -24,13 +35,25 @@ class NotesController < ApplicationController
     @note = Note.find_by(id: params[:id])
     @note.title = params[:title]
     @note.content = params[:content]
-    @note.save
-    redirect_to "/notes/#{@note.id}"
+
+    file = params[:image]
+    if file
+      @note.image = "/note_images/#{SecureRandom.urlsafe_base64}"
+      File.binwrite("public/#{@note.image}", file.read)
+    end
+
+    if @note.save
+      flash[:notice] = '投稿を編集しました'
+      redirect_to "/notes/#{@note.id}"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     @note = Note.find_by(id: params[:id])
     @note.destroy
+    flash[:notice] = '投稿を削除しました'
     redirect_to '/notes/index'
   end
 end

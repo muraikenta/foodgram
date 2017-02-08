@@ -1,7 +1,7 @@
 <div class="notes-index">
   <% @notes.each do |note| %>
     <div class="note">
-      <img src="/images/dummy_food.png">
+      <img src="<%= note.image %>">
       <h3>
         <a href="/notes/<%= note.id %>">
           <%= note.title %>
