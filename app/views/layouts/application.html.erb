@@ -15,9 +15,18 @@
         <a href="/"><img src="/images/logo.png"></a>
       </div>
       <ul class="header-menus">
-        <li><a href="/about">ABOUT</a></li>
-        <li><a href="/notes/index"><span class="fa fa-picture-o"></span>投稿一覧</a></li>
-        <li><a href="/notes/new"><span class="fa fa-edit"></span>新規投稿</a></li>
+        <% if @current_user %>
+          <li><a href="/users/<%= @current_user.id %>"><%= @current_user.name %></a></li>
+          <li><a href="/notes/new"><span class="fa fa-edit"></span>新規投稿</a></li>
+          <li><a href="/notes/index"><span class="fa fa-picture-o"></span>投稿一覧</a></li>
+          <li>
+            <%= form_tag '/logout' do %>
+              <input type="submit" value="ログアウト">
+            <% end %>
+          </li>
+        <% else %>
+          <li><a href="/about">ABOUT</a></li>
+        <% end%>
       </ul>
     </header>
 

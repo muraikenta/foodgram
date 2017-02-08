@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   def index
+    @current_user = User.find_by(id: session[:user_id])
     @notes = Note.all.order(created_at: :desc)
   end
 

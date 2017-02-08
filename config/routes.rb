@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'signup' => 'users#new'
+  get 'login' => 'users#login_form'
+  get 'users/:id' => 'users#show'
+  post 'users' => 'users#create'
+  post 'login' => 'users#login'
+  post 'logout' => 'users#logout'
+
   get '/' => 'home#top'
   get '/about' => 'home#about'
 
@@ -9,6 +16,4 @@ Rails.application.routes.draw do
   post 'notes' => 'notes#create'
   post 'notes/:id/update' => 'notes#update'
   post 'notes/:id/destroy' => 'notes#destroy'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

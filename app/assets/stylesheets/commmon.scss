@@ -85,6 +85,16 @@ header {
   line-height: 75px;
 }
 
+.header-menus input[type="submit"] {
+  background-color: white;
+  padding: 0 20px;
+  float: left;
+  line-height: 75px;
+  color: gray;
+  margin: 0;
+  font-size: 15px;
+}
+
 /* フラッシュ ================================ */
 .flash {
   padding: 20px;
@@ -96,7 +106,7 @@ header {
 
 /* ボタン ================================ */
 .btn {
-  padding: 8px 24px;
+  padding: 10px 26px;
   color: white;
   display: inline-block;
   opacity: 0.8;
@@ -121,15 +131,17 @@ header {
 }
 
 /*　「新規登録」と「編集」ボタン　*/
-.register-btn, .edit-btn {
-  background-color: #239b76;
+.signup-btn {
+  color: #582a12;
+  background-color: white;
   margin-top:30px;
+  width: 150px;
 }
 
-.register-btn:hover,.edit-btn:hover {
-  background-color: #28b086;
-  color: white;
-  text-decoration: none;
+.login-btn {
+  color: #582a12;
+  background-color: white;
+  width: 150px;
 }
 
 /*　「戻る」ボタン　*/
@@ -152,6 +164,44 @@ input, textarea, select {
   padding: 10px;
 }
 
+.form-header {
+  color: white;
+  background: #060629;
+  padding: 20px;
+  text-align: center;
+}
+
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-body {
+  padding: 50px;
+  background: white;
+  box-shadow: 1px 5px 20px 0px rgba(128, 128, 128, 0.34)
+}
+
+.form-error {
+  color: indianred;
+}
+
+.form input {
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.form textarea {
+  width: 100%;
+  height: 200px;
+  font-size: 1.2em;
+}
+
+.form input[type="submit"] {
+  background-color: rgba(195, 65, 143, 0.8);
+  color: white;
+  cursor: pointer;
+}
 input[type="submit"] {
   border: none;
   cursor: pointer;
