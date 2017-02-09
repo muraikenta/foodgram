@@ -16,6 +16,7 @@ gem 'pry-rails', '0.3.4'
 gem 'jquery-rails', '4.2.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '5.0.1'
+gem 'bcrypt'
 
 group :development do
   gem 'byebug', '9.0.6', platform: :mri

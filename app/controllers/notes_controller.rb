@@ -1,4 +1,6 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @current_user = User.find_by(id: session[:user_id])
     @notes = Note.all.order(created_at: :desc)
