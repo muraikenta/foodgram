@@ -2,12 +2,17 @@
   <div class="note">
     <img src="<%= @note.image %>">
     <h3><%= @note.title %></h3>
+    <p>
+      by <a href="/users/<%= @user.id %>"><%= @user.name %></a>
+    </p>
     <p><%= @note.content %></p>
   </div>
-  <div class="note-edit">
-    <a href="/notes/<%= @note.id %>/edit">編集</a>
-    <%= form_tag "/notes/#{@note.id}/destroy" do %>
-      <input type="submit" value="削除">
-    <% end %>
-  </div>
+  <% if @note.user.id == @current_user.id %>
+    <div class="note-edit">
+      <a href="/notes/<%= @note.id %>/edit">編集</a>
+      <%= form_tag "/notes/#{@note.id}/destroy" do %>
+        <input type="submit" value="削除">
+      <% end %>
+    </div>
+  <% end %>
 </div>

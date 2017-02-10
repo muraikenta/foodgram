@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     @current_user = User.find_by(id: session[:user_id])
@@ -8,6 +9,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find_by(id: params[:id])
+    @user = @note.user
   end
 
   def new
@@ -15,7 +17,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(title: params[:title], content: params[:content])
+    @note = Note.new(title: params[:title], content: params[:content], user_id: @current_user.id)
     file = params[:image]
     if file
       @note.image = "/note_images/#{SecureRandom.urlsafe_base64}"
@@ -58,5 +60,15 @@ class NotesController < ApplicationController
     @note.destroy
     flash[:notice] = '投稿を削除しました'
     redirect_to '/notes/index'
+  end
+
+  private
+
+  def ensure_correct_user
+    @note = Note.find_by(id: params[:id])
+    if @current_user.id != @note.user_id
+      flash[:notice] = '権限がありません'
+      redirect_to '/notes/index'
+    end
   end
 end

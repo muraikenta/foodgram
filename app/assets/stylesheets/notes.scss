@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-.notes-index .note {
+.notes-list-item {
   overflow: hidden;
   width: 350px;
   height: 430px;
@@ -16,12 +16,12 @@
   border: 1px solid rgba(194, 203, 208, 0.36);
 }
 
-.notes-index .note img {
+.notes-list-item img {
   height: 350px;
   min-width: 100%;
 }
 
-.notes-index .note h3 {
+.notes-list-item h3 {
   margin: 10px 10px 15px;
   line-height: 1.2;
 }

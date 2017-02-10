@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: [:edit_profile, :update_profile, :edit_password, :update_password]
   before_action :forbid_login_user, only: [:new, :create, :login_form, :login]
-  
+
   def show
     @user = User.find_by(id: params[:id])
+    @notes = @user.notes
   end
 
   def new

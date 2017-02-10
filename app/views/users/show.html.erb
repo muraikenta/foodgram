@@ -4,7 +4,21 @@
     <p><%= @user.name %></p>
     <h2>メールアドレス</h2>
     <p><%= @user.email %></p>
-    <a href="/edit_profile">プロフィールの編集</a>
-    <a href="/edit_password">パスワードの変更</a>
+    <% if @user.id == @current_user.id %>
+      <a href="/edit_profile">プロフィールの編集</a>
+      <a href="/edit_password">パスワードの変更</a>
+    <% end %>
   </div>
+
+  <h2>投稿一覧</h2>
+  <% @notes.each do |note| %>
+    <div class="notes-list-item">
+      <img src="<%= note.image %>">
+      <h3>
+        <a href="/notes/<%= note.id %>">
+          <%= note.title %>
+        </a>
+      </h3>
+    </div>
+  <% end %>
 </div>
