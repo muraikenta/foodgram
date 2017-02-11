@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/:user_id/likes' => 'likes#index'
+  post 'likes/create' => 'likes#create'
+  post 'likes/destroy' => 'likes#destroy'
+
   get 'signup' => 'users#new'
   get 'login' => 'users#login_form'
   get 'edit_profile' => 'users#edit_profile'

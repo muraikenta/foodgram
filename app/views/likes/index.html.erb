@@ -1,0 +1,17 @@
+<div class="notes-index">
+  <h2>
+    <a href="/users/<%= @user.id%>"><%= @user.name %></a>
+    さんのお気に入り一覧
+  </h2>
+  <% @user.likes.each do |like| %>
+    <% note = like.note %>
+    <div class="notes-list-item">
+      <img src="<%= note.image %>">
+      <h3>
+        <a href="/notes/<%= note.id %>">
+          <%= note.title %>
+        </a>
+      </h3>
+    </div>
+  <% end %>
+</div>
