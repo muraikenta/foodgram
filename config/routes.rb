@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'edit_profile' => 'users#edit_profile'
   get 'edit_password' => 'users#edit_password'
   get 'users/:id' => 'users#show'
-  post 'users' => 'users#create'
+  post 'users/create' => 'users#create'
   post 'login' => 'users#login'
   post 'logout' => 'users#logout'
   post 'update_profile' => 'users#update_profile'
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'notes/new' => 'notes#new'
   get 'notes/:id/edit' => 'notes#edit'
   get 'notes/:id' => 'notes#show'
-  post 'notes' => 'notes#create'
+  post 'notes/create' => 'notes#create'
   post 'notes/:id/update' => 'notes#update'
   post 'notes/:id/destroy' => 'notes#destroy'
 end
