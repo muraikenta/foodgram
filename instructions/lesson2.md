@@ -1,4 +1,4 @@
-# Instruction for lesson1
+# Instruction for lesson2
 
 ## Page1
 * 完成物を確認
