@@ -1,3 +1,57 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* home ================================ */
+.top-main {
+  padding-top: 200px;
+  padding-bottom:350px;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/ea/8d/83/ea8d835e3b002f6c79835aa7a4b9def2.jpg");
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+
+.top-main:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.top-message {
+  position: relative;
+}
+
+.top-main h2 {
+  font-size: 3em;
+}
+
+/* about ================================ */
+.about-main {
+  padding: 0 50px 100px;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/ea/8d/83/ea8d835e3b002f6c79835aa7a4b9def2.jpg");
+  background-size: cover;
+  position: relative;
+  color: white;
+}
+
+.about-main:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.about-main h2,
+.about-main p {
+  position: relative;
+}
+
+.about-main h2 {
+  margin: 0;
+  padding-top: 50px;
+}
