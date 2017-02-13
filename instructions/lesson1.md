@@ -17,7 +17,7 @@
 ## Page4
 * home/top.html.erbを編集
   * 以下のコードを貼り付け
-```
+```erb
 <div class="top-main">
   <div class="top-message">
     <h2>お気に入りの料理を見つけよう</h2>
@@ -39,7 +39,7 @@
 ## Page8
 * home/about.html.erbを作成
   * 以下のコードを貼り付け
-```
+```erb
 <div class="about-main">
   <h2>Foodgramとは</h2>
   <p>
@@ -67,7 +67,7 @@
 ## Page10
 * ヘッダーの作成
   * top.html.erbとhome.html.erbに以下のコードを貼り付け
-```
+```erb
 <header>
   <div class="header-logo">
     Foodgram
@@ -93,7 +93,7 @@
 * ヘッダーに各ページへのリンクを追加
   * ロゴ部分を`<a href="/"></a>`で囲む
   * ヘッダー内に以下のコードを追加
-```
+```erb
 <ul class="header-menus">
   <li><a href="/about">ABOUT</a></li>
 </ul>
