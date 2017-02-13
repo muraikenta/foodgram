@@ -62,9 +62,9 @@
 ```
 ## Page8
 * user.rb
-  * has_many :notes
+  * `has_many :notes`
 * users#show
-  * @notes = @user.notes
+  * `@notes = @user.notes`
   
 ## Page9
 * 投稿者だけが編集できるようにしよう（ビュー）
