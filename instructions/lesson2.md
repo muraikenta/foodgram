@@ -15,7 +15,7 @@
 ## Page3
 * models/note.rbを作成
   * 以下のコードを貼り付け
-```
+```rb
 class Note < AplicationRecord
 end
 ```
@@ -48,7 +48,7 @@ end
 ## Page7
 * `$ rails generate controller note index`
 * views/notes/index.html.erbを編集
-```
+```erb
 <div class="notes-index">
 </div>
 ```
@@ -59,7 +59,7 @@ end
 * views/notes/index.html.erbを編集
   * 変数`note`を定義し、idが1のNoteインスタンスを代入
   * `note.title`を表示
-```
+```erb
 <% note = Note.find_by(id: 1) %>
 <div class="notes-index">
   <div class="note">
@@ -85,7 +85,7 @@ end
 * views/notes/index.html.erbを編集
   * each文を用いて、変数`@notes`の各要素を変数`note`に代入
   * each文の中で`note.title`を表示
-```
+```erb
 <div class="notes-index">
   <% @notes.each do |note| %>
     <div class="note">
@@ -101,7 +101,7 @@ end
 ## Page11
 * layout/application.html.erbを編集
   * ヘッダーを貼り付け
-```
+```erb
 <header>
   <div class="header-logo">
     <a href="/"><img src="/images/logo.png"></a>
@@ -124,7 +124,7 @@ end
   * 変数`@id`を定義し、`params[:id]`を代入
 * notes/show.html.erbを作成
   * 変数`@id`を表示
-```
+```erb
 <div class="note-show">
   <div class="note">
     <img src="/images/dummy_food.png">
@@ -140,7 +140,7 @@ end
 * notes/show.html.erbを作成
   * `@note.title`を表示
   * `@note.content`を表示
-```
+```erb
 <div class="note-show">
   <div class="note">
     <img src="/images/dummy_food.png">
