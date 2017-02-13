@@ -1,20 +1,24 @@
 # Instruction for lesson1
 
 ## Page1
+### 完成物を確認しよう
 * 完成物を確認
   * トップページ
   * 概要ページ
 
 ## Page2
+### rails new
 * `$ rails new foodgram`
 * `$ rails s`
 * ブラウザで`localhost:3000`にアクセスして確認
 
 ## Page3
+### Topページを表示しよう
 * `$ rails generate controller home top`
 * `localhost:3000/home/top`にアクセスして確認
 
 ## Page4
+### コマンドの意味を理解しよう
 * home/top.html.erbを編集
   * 以下のコードを貼り付け
 ```erb
@@ -26,17 +30,21 @@
 ```
 
 ## Page5
+### コントローラを学ぼう
 * home_controller.rbの中身を確認
 
 ## Page6
+### ルーティング
 * routes.rbの中身を確認
 * `localhost:3000/hello`でエラーが表示されることを確認
 
 ## Page7
+### ルーティングを変えてみよう
 * routes.rbを編集
   * `/top`で`'home#top'`にアクセスできるように
 
 ## Page8
+### 自分でページを追加してみよう
 * home/about.html.erbを作成
   * 以下のコードを貼り付け
 ```erb
@@ -59,12 +67,14 @@
 ```
 
 ## Page9
+### ルーティングとコントローラを作ろう
 * routes.rbを編集
   * `/about`で`'home#about'`にアクセスできるように
 * home_controller.rbを修正
   * 空のaboutアクションを作成
 
 ## Page10
+### CSSを適用しよう
 * ヘッダーの作成
   * top.html.erbとhome.html.erbに以下のコードを貼り付け
 ```erb
@@ -81,15 +91,18 @@
   * （メモ）このファイルは裏で用意しておいてもいいかも
 
 ## Page11
+### 画像を表示しよう
 * 画像の追加
   * ヘッダーの`Foodgram`の部分を`<img src="/images/logo.png">`に書き換え
   * [logo.png](https://github.com/muraikenta/foodgram/blob/27a5d6d7de806a70592fe2b2bccd732f9b1abd19/public/images/logo.png)
 
 ## Page12
+### URLを変更しよう
 * routes.rbを編集
   * `localhost:3000`で`'home#top'`にアクセスできるように
 
 ## Page13
+### リンクを作ろう
 * ヘッダーに各ページへのリンクを追加
   * ロゴ部分を`<a href="/"></a>`で囲む
   * ヘッダー内に以下のコードを追加

@@ -1,18 +1,21 @@
 # Instruction for lesson2
 
 ## Page1
+### 完成物確認
 * 完成物を確認
   * 投稿一覧ページ
   * 投稿詳細ページ
   * DBプレビュー
 
 ## Page2
+### DBを作成しよう
 * `$ rails generate create_notes title:staring content:text`
 * db/migrate以下にファイルができていることを確認
 * `$ rails db:migrate`
 * DBプレビューで空のテーブルができていることを確認
 
 ## Page3
+### noteモデルを作成しよう
 * models/note.rbを作成
   * 以下のコードを貼り付け
 ```rb
@@ -21,6 +24,7 @@ end
 ```
 
 ## Page4
+### rails consoleを使おう
 * `$ rails console`
 ```
 > 1 + 2
@@ -28,6 +32,7 @@ end
 ```
 
 ## Page5
+### DBにデータを作成しよう
 * `$ rails console`
 ```
 > note = Note.new(title: 'たこ焼き', content: 'これぞ大阪名物！')
@@ -37,6 +42,7 @@ end
 * DBプレビューで確認
 
 ## Page6
+### DBからデータを取り出そう
 * `$ rails console`
 ```
 > Note.all
@@ -46,6 +52,7 @@ end
 ```
 
 ## Page7
+### 投稿一覧ページの準備をしよう
 * `$ rails generate controller note index`
 * views/notes/index.html.erbを編集
 ```erb
@@ -56,6 +63,7 @@ end
   * [note.scss](https://github.com/muraikenta/foodgram/blob/ca821a81147383babd3431de1867a66537bc3ea6/app/assets/stylesheets/notes.scss)
 
 ## Page8
+### ブラウザに投稿を表示しよう
 * views/notes/index.html.erbを編集
   * 変数`note`を定義し、idが1のNoteインスタンスを代入
   * `note.title`を表示
@@ -72,6 +80,7 @@ end
 ```
 
 ## Page9
+### アクションで変数を定義しよう
 * notes_controller.rbを編集
   * indexアクション内で変数`@note`を定義し、idが1のNoteインスタンスを代入
 * views/notes/index.html.erbを編集
@@ -79,6 +88,7 @@ end
   * 変数`note`を変数`@note`に変更
 
 ## Page10
+### 全ての投稿を表示しよう
 * notes_controller.rbを編集
   * 変数`@note`の定義部分を削除
   * 変数`@notes`を定義し、全てのNoteインスタンスを代入
@@ -99,6 +109,7 @@ end
 ```
 
 ## Page11
+### レイアウト
 * layout/application.html.erbを編集
   * ヘッダーを貼り付け
 ```erb
@@ -117,6 +128,7 @@ end
   * home/about.html.erb
 
 ## Page12
+### 詳細画面を作成しよう
 * routes.rbを編集
   * `'notes#show'`へのルーティングを追加
 * notes_controller.rbを編集
@@ -134,6 +146,7 @@ end
 ```
 
 ## Page13
+### 詳細画面を作成しよう
 * notes_controller.rbを編集
   * 変数`@id`の定義部分を削除
   * `find_by`と`params[:id]`を用いて、変数`@note`を代入
@@ -151,5 +164,6 @@ end
 ```
 
 ## Page14
+### 詳細画面へのリンクを作成しよう
 * notes/index.html.erbを編集
   * 各投稿のタイトル部分をshowページへのリンクに変更
