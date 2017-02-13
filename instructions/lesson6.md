@@ -11,12 +11,12 @@
   * `gem 'bcrypt', '3.1.11'`
 * `bundle install`
 * users#create
-  * @user.password = BCrypt::Password.create(params[:password])
+  * `@user.password = BCrypt::Password.create(params[:password])`
 
 ## Page3
 * 暗号化したパスワードと比較しよう
 * users#login
-  * if user && BCrypt::Password.new(@user.password).is_password?(params[:password])
+  * `if user && BCrypt::Password.new(@user.password).is_password?(params[:password])`
 
 ## Page4
 * アカウント編集フォームを準備しよう
@@ -84,7 +84,6 @@ end
   * get 'edit_password' => 'users#edit_password'
 * users#edit_passwordアクションを作成
 * users/edit_password.html.erbを作成（以下を貼り付け）
-```erb
 ```erb
 <div class="users-edit">
   <div class="form users-form">
