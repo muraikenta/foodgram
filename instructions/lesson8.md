@@ -7,34 +7,33 @@
 
 ## Page2
 * likesテーブルを作成してください
-  * rails g migration create_likes user_id:integer note_id: integer
+  * `rails g migration create_likes user_id:integer note_id: integer`
 * likeモデルを作成してください
   * models/like.rbを作成
-  * class Like < ApplicationRecord; end
+  * `class Like < ApplicationRecord; end`
 
 ## Page3
 * models/like.rbに以下のバリデーションを追加
-  * validates :user_id, presence: true
-  * validates :note_id, presence: true
+  * `validates :user_id, presence: true`
+  * `validates :note_id, presence: true`
 
 ## Page4
 * それぞれのモデルにアソシエーションを追加
   * models/user.rb
-    * has_many :likes
+    * `has_many :likes`
   * models/note.rb
-    * has_many :likes
+    * `has_many :likes`
   * models/like.rb
-    * belongs_to :user
-    * belongs_to :note
+    * `belongs_to :user`
+    * `belongs_to :note`
 
 ## Page5
 * お気に入り機能の準備をしましょう
 * likes_controller.rbを作成（不要なものが多いので、コマンドは使わない）
   * createアクションとdestroyアクションを作成
-  * 
 * routes.rb
-  * post 'notes/:note_id/create_like' => 'likes#create'
-  * post 'notes/:note_id/destroy_like' => 'likes#destroy'
+  * `post 'notes/:note_id/create_like' => 'likes#create'`
+  * `post 'notes/:note_id/destroy_like' => 'likes#destroy'`
 
 ## Page6
 * お気に入りボタンを表示しましょう
@@ -97,7 +96,7 @@ redirect_to 'notes'
 ## Page11
 * ユーザーがお気に入りした投稿の一覧を見れるようにしましょう （準備）
 * routes.rb
-  * get 'users/:user_id/likes' => 'likes#index'
+  * `get 'users/:user_id/likes' => 'likes#index'`
 * likes_controll.erb
   * likes#index
 * likes/index.html.erbの作成（以下を貼り付け）
@@ -135,4 +134,4 @@ redirect_to 'notes'
 ## Page13
 * 投稿削除時に紐付いたお気に入りも消えるようにしよう
 * note.rb
-  * has_many :likes, dependent: :destroy
+  * `has_many :likes, dependent: :destroy`
