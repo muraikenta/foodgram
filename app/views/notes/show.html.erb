@@ -1,0 +1,34 @@
+<div class="note-show">
+  <div class="note">
+    <img src="<%= @note.image %>">
+    <h3><%= @note.title %></h3>
+    <p>
+      by <a href="/users/<%= @user.id %>"><%= @user.name %></a>
+    </p>
+    <p><%= @note.content %></p>
+    <% if @current_user %>
+      <% like = Like.find_by(user_id: @current_user.id, note_id: @note.id) %>
+      <% if like %>
+        <%= form_tag "/likes/destroy" do %>
+          <input type="hidden" name="note_id" value="<%= @note.id %>">
+          <span class="fa fa-heart unlike"></span>
+          <input type="submit" value="お気に入り済み（<%= @note.likes.count %>）" class="unlike">
+        <% end %>
+      <% else %>
+        <%= form_tag '/likes/create' do %>
+          <input type="hidden" name="note_id" value="<%= @note.id %>">
+          <span class="fa fa-heart like"></span>
+          <input type="submit" value="お気に入り（<%= @note.likes.count %>）" class="like">
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <% if @note.user.id == @current_user.id %>
+    <div class="note-edit">
+      <a href="/notes/<%= @note.id %>/edit">編集</a>
+      <%= form_tag "/notes/#{@note.id}/destroy" do %>
+        <input type="submit" value="削除">
+      <% end %>
+    </div>
+  <% end %>
+</div>
