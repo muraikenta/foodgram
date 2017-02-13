@@ -8,7 +8,7 @@
 * `rails g migration add_user_id_to_notes user_id:integer`
 * `rails db:migrate`
 * note.rb
-  * `validates :user_id, presence: true`{.ruby}
+  * `validates :user_id, presence: true`
 * rails console
   * `Note.destroy_all`
 
