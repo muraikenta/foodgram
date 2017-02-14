@@ -14,5 +14,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-public/note_images/*
-!public/note_images/.gitkeep
+public/food_images/*
+!public/food_images/.gitkeep

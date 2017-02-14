@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/:user_id/likes' => 'likes#index'
-  post '/notes/:note_id/create_like' => 'likes#create'
-  post '/notes/:note_id/destroy_like' => 'likes#destroy'
+  post '/foods/:food_id/create_like' => 'likes#create'
+  post '/foods/:food_id/destroy_like' => 'likes#destroy'
 
   get 'signup' => 'users#new'
   get 'login' => 'users#login_form'
@@ -17,11 +17,11 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
   get '/about' => 'home#about'
 
-  get 'notes/index' => 'notes#index'
-  get 'notes/new' => 'notes#new'
-  get 'notes/:id/edit' => 'notes#edit'
-  get 'notes/:id' => 'notes#show'
-  post 'notes/create' => 'notes#create'
-  post 'notes/:id/update' => 'notes#update'
-  post 'notes/:id/destroy' => 'notes#destroy'
+  get 'foods/index' => 'foods#index'
+  get 'foods/new' => 'foods#new'
+  get 'foods/:id/edit' => 'foods#edit'
+  get 'foods/:id' => 'foods#show'
+  post 'foods/create' => 'foods#create'
+  post 'foods/:id/update' => 'foods#update'
+  post 'foods/:id/destroy' => 'foods#destroy'
 end

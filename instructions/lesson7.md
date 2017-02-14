@@ -4,57 +4,57 @@
   * ユーザー詳細画面に投稿一覧があることを確認
   
 ## Page2
-* UserとNoteを紐付けよう
-* `rails g migration add_user_id_to_notes user_id:integer`
+* UserとFoodを紐付けよう
+* `rails g migration add_user_id_to_foods user_id:integer`
 * `rails db:migrate`
-* note.rb
+* food.rb
   * `validates :user_id, presence: true`
 * rails console
-  * `Note.destroy_all`
+  * `Food.destroy_all`
 
 ## Page3
-* ログインユーザーと投稿Noteを紐付けよう
-* notes#create
-  * `@note = Note.new(title: params[:title], content: params[:content], user_id: @current_user.id)`
+* ログインユーザーと投稿Foodを紐付けよう
+* foods#create
+  * `@food = Food.new(title: params[:title], content: params[:content], user_id: @current_user.id)`
 
 ## Page4
 * 投稿詳細にユーザー名を表示しよう
-* notes#show
-  * `@user = User.find_by(id: @note.user_id)`
-* notes/show.html.erb
+* foods#show
+  * `@user = User.find_by(id: @food.user_id)`
+* foods/show.html.erb
 ```erb
 ...
-<h3><%= @note.title %></h3>
+<h3><%= @food.title %></h3>
 <p>
   by <a href="/users/<%= @user.id %>"><%= @user.name %></a>
 </p>
 ...
 ```
 ## Page5
-* note.rb
+* food.rb
   * `belongs_to :user`
-* notes#show
-  * `@user = @note.user`
+* foods#show
+  * `@user = @food.user`
 
 ## Page6
 * 条件に一致する複数のデータを取得しよう
 * rails console
-  * `Note.where(user_id: 1)`
-  * `Note.where(title: 'hoge')`
+  * `Food.where(user_id: 1)`
+  * `Food.where(title: 'hoge')`
 
 ## Page7
 * ユーザー詳細に投稿を表示しよう
 * users#show
-  * @notes = Note.where(user_id: @user.id)
+  * @foods = Food.where(user_id: @user.id)
 * users/show.html.erb（以下の内容を.user-showの閉じタグの直前に書く）
 ```erb
 <h2>投稿一覧</h2>
-<% @notes.each do |note| %>
-  <div class="notes-list-item">
-    <img src="<%= note.image %>">
+<% @foods.each do |food| %>
+  <div class="foods-list-item">
+    <img src="<%= food.image %>">
     <h3>
-      <a href="/notes/<%= note.id %>">
-        <%= note.title %>
+      <a href="/foods/<%= food.id %>">
+        <%= food.title %>
       </a>
     </h3>
   </div>
@@ -62,17 +62,17 @@
 ```
 ## Page8
 * user.rb
-  * `has_many :notes`
+  * `has_many :foods`
 * users#show
-  * `@notes = @user.notes`
+  * `@foods = @user.foods`
   
 ## Page9
 * 投稿者だけが編集できるようにしよう（ビュー）
-* notes/show.html.erb
+* foods/show.html.erb
 ```erb
-<% if @note.user.id == @current_user.id %>
-  <div class="note-edit">
-    <a href="/notes/<%= @note.id %>/edit">編集</a>
+<% if @food.user.id == @current_user.id %>
+  <div class="food-edit">
+    <a href="/foods/<%= @food.id %>/edit">編集</a>
     ...
   </div>
 <% end %>
@@ -80,17 +80,17 @@
 
 ## Page10
 * 投稿者だけが編集できるようにしよう
-* notes_controller.rb
+* foods_controller.rb
 ```rb
 before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
 private
 
 def ensure_correct_user
-  @note = Note.find_by(id: params[:id])
-  if @current_user.id != @note.user_id
+  @food = Food.find_by(id: params[:id])
+  if @current_user.id != @food.user_id
     flash[:notice] = '権限がありません'
-    redirect_to '/notes/index'
+    redirect_to '/foods/index'
   end
 end
 ```

@@ -1,7 +1,7 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :note
+  belongs_to :food
 
   validates :user_id, presence: true
-  validates :note_id, presence: true
+  validates :food_id, presence: true
 end

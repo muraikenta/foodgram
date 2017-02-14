@@ -16,12 +16,12 @@
     </a>
   </div>
   <h2>投稿一覧</h2>
-  <% @notes.each do |note| %>
-    <div class="notes-list-item">
-      <img src="<%= note.image %>">
+  <% @foods.each do |food| %>
+    <div class="foods-list-item">
+      <img src="<%= food.image %>">
       <h3>
-        <a href="/notes/<%= note.id %>">
-          <%= note.title %>
+        <a href="/foods/<%= food.id %>">
+          <%= food.title %>
         </a>
       </h3>
     </div>

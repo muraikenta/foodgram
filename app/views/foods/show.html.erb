@@ -1,0 +1,31 @@
+<div class="food-show">
+  <div class="food">
+    <img src="<%= @food.image %>">
+    <h3><%= @food.title %></h3>
+    <p>
+      by <a href="/users/<%= @user.id %>"><%= @user.name %></a>
+    </p>
+    <p><%= @food.content %></p>
+    <% if @current_user %>
+      <% if Like.find_by(user_id: @current_user.id, food_id: @food.id) %>
+        <%= form_tag "/foods/#{@food.id}/destroy_like" do %>
+          <span class="fa fa-heart unlike"></span>
+          <input type="submit" value="お気に入り済み（<%= @food.likes.count %>）" class="unlike">
+        <% end %>
+      <% else %>
+        <%= form_tag "/foods/#{@food.id}/create_like" do %>
+          <span class="fa fa-heart like"></span>
+          <input type="submit" value="お気に入り（<%= @food.likes.count %>）" class="like">
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <% if @food.user.id == @current_user.id %>
+    <div class="food-edit">
+      <a href="/foods/<%= @food.id %>/edit">編集</a>
+      <%= form_tag "/foods/#{@food.id}/destroy" do %>
+        <input type="submit" value="削除">
+      <% end %>
+    </div>
+  <% end %>
+</div>

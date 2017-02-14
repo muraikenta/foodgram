@@ -9,17 +9,17 @@
 
 ## Page2
 ### DBを作成しよう
-* `$ rails generate create_notes title:staring content:text`
+* `$ rails generate create_foods title:staring content:text`
 * db/migrate以下にファイルができていることを確認
 * `$ rails db:migrate`
 * DBプレビューで空のテーブルができていることを確認
 
 ## Page3
-### noteモデルを作成しよう
-* models/note.rbを作成
+### foodモデルを作成しよう
+* models/food.rbを作成
   * 以下のコードを貼り付け
 ```rb
-class Note < AplicationRecord
+class Food < AplicationRecord
 end
 ```
 
@@ -35,8 +35,8 @@ end
 ### DBにデータを作成しよう
 * `$ rails console`
 ```
-> note = Note.new(title: 'たこ焼き', content: 'これぞ大阪名物！')
-> note.save
+> food = Food.new(title: 'たこ焼き', content: 'これぞ大阪名物！')
+> food.save
 > quit
 ```
 * DBプレビューで確認
@@ -45,35 +45,35 @@ end
 ### DBからデータを取り出そう
 * `$ rails console`
 ```
-> Note.all
-> note = Note.find_by(id: 1)
-> note.title
+> Food.all
+> food = Food.find_by(id: 1)
+> food.title
 > quit
 ```
 
 ## Page7
 ### 投稿一覧ページの準備をしよう
-* `$ rails generate controller note index`
-* views/notes/index.html.erbを編集
+* `$ rails generate controller food index`
+* views/foods/index.html.erbを編集
 ```erb
-<div class="notes-index">
+<div class="foods-index">
 </div>
 ```
-* stylesheets/note.scssを編集
-  * [note.scss](https://github.com/muraikenta/foodgram/blob/ca821a81147383babd3431de1867a66537bc3ea6/app/assets/stylesheets/notes.scss)
+* stylesheets/food.scssを編集
+  * [food.scss](https://github.com/muraikenta/foodgram/blob/ca821a81147383babd3431de1867a66537bc3ea6/app/assets/stylesheets/foods.scss)
 
 ## Page8
 ### ブラウザに投稿を表示しよう
-* views/notes/index.html.erbを編集
-  * 変数`note`を定義し、idが1のNoteインスタンスを代入
-  * `note.title`を表示
+* views/foods/index.html.erbを編集
+  * 変数`food`を定義し、idが1のFoodインスタンスを代入
+  * `food.title`を表示
 ```erb
-<% note = Note.find_by(id: 1) %>
-<div class="notes-index">
-  <div class="note">
+<% food = Food.find_by(id: 1) %>
+<div class="foods-index">
+  <div class="food">
     <img src="/images/dummy_food.png">
     <h3>
-      <%= note.title %>
+      <%= food.title %>
     </h3>
   </div>
 </div>
@@ -81,27 +81,27 @@ end
 
 ## Page9
 ### アクションで変数を定義しよう
-* notes_controller.rbを編集
-  * indexアクション内で変数`@note`を定義し、idが1のNoteインスタンスを代入
-* views/notes/index.html.erbを編集
-  * 変数`note`の定義部分を削除
-  * 変数`note`を変数`@note`に変更
+* foods_controller.rbを編集
+  * indexアクション内で変数`@food`を定義し、idが1のFoodインスタンスを代入
+* views/foods/index.html.erbを編集
+  * 変数`food`の定義部分を削除
+  * 変数`food`を変数`@food`に変更
 
 ## Page10
 ### 全ての投稿を表示しよう
-* notes_controller.rbを編集
-  * 変数`@note`の定義部分を削除
-  * 変数`@notes`を定義し、全てのNoteインスタンスを代入
-* views/notes/index.html.erbを編集
-  * each文を用いて、変数`@notes`の各要素を変数`note`に代入
-  * each文の中で`note.title`を表示
+* foods_controller.rbを編集
+  * 変数`@food`の定義部分を削除
+  * 変数`@foods`を定義し、全てのFoodインスタンスを代入
+* views/foods/index.html.erbを編集
+  * each文を用いて、変数`@foods`の各要素を変数`food`に代入
+  * each文の中で`food.title`を表示
 ```erb
-<div class="notes-index">
-  <% @notes.each do |note| %>
-    <div class="note">
+<div class="foods-index">
+  <% @foods.each do |food| %>
+    <div class="food">
       <img src="/images/dummy_food.png">
       <h3>
-        <%= note.title %>
+        <%= food.title %>
       </h3>
     </div>
   <% end %>
@@ -119,7 +119,7 @@ end
   </div>
   <ul class="header-menus">
     <li><a href="/about">ABOUT</a></li>
-    <li><a href="/notes/index">投稿一覧</a></li>
+    <li><a href="/foods/index">投稿一覧</a></li>
   </ul>
 </header>
 ```
@@ -130,15 +130,15 @@ end
 ## Page12
 ### 詳細画面を作成しよう
 * routes.rbを編集
-  * `'notes#show'`へのルーティングを追加
-* notes_controller.rbを編集
+  * `'foods#show'`へのルーティングを追加
+* foods_controller.rbを編集
   * showアクションを追加
   * 変数`@id`を定義し、`params[:id]`を代入
-* notes/show.html.erbを作成
+* foods/show.html.erbを作成
   * 変数`@id`を表示
 ```erb
-<div class="note-show">
-  <div class="note">
+<div class="food-show">
+  <div class="food">
     <img src="/images/dummy_food.png">
     <%= @id %>
   </div>
@@ -147,23 +147,23 @@ end
 
 ## Page13
 ### 詳細画面を作成しよう
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * 変数`@id`の定義部分を削除
-  * `find_by`と`params[:id]`を用いて、変数`@note`を代入
-* notes/show.html.erbを作成
-  * `@note.title`を表示
-  * `@note.content`を表示
+  * `find_by`と`params[:id]`を用いて、変数`@food`を代入
+* foods/show.html.erbを作成
+  * `@food.title`を表示
+  * `@food.content`を表示
 ```erb
-<div class="note-show">
-  <div class="note">
+<div class="food-show">
+  <div class="food">
     <img src="/images/dummy_food.png">
-    <h3><%= @note.title %></h3>
-    <p><%= @note.content %></p>
+    <h3><%= @food.title %></h3>
+    <p><%= @food.content %></p>
   </div>
 </div>
 ```
 
 ## Page14
 ### 詳細画面へのリンクを作成しよう
-* notes/index.html.erbを編集
+* foods/index.html.erbを編集
   * 各投稿のタイトル部分をshowページへのリンクに変更

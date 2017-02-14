@@ -2,8 +2,8 @@
 
 one:
   user_id: 1
-  note_id: 1
+  food_id: 1
 
 two:
   user_id: 1
-  note_id: 1
+  food_id: 1

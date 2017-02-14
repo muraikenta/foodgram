@@ -191,7 +191,7 @@ if @user.save
 
 ## Page10
 ### ログインユーザーの情報を表示しよう
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * indexアクションの中身を編集
 ```rb
 @current_user = User.find_by(id: session[:user_id])
@@ -227,8 +227,8 @@ before_action :set_current_user
 <ul class="header-menus">
   <% if @current_user %>
     <li><a href="/users/<%= @current_user.id %>"><%= @current_user.name %></a></li>
-    <li><a href="/notes/new"><span class="fa fa-edit"></span>新規投稿</a></li>
-    <li><a href="/notes/index"><span class="fa fa-picture-o"></span>投稿一覧</a></li>
+    <li><a href="/foods/new"><span class="fa fa-edit"></span>新規投稿</a></li>
+    <li><a href="/foods/index"><span class="fa fa-picture-o"></span>投稿一覧</a></li>
   <% else %>
     <a href=’/login’>ログイン</a>
   <% end%>

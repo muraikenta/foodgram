@@ -7,14 +7,14 @@
   * 投稿の削除
 
 ## Page2
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * 空のnewアクションを作成
 * routes.rbを編集
-  * `get 'notes/new' => 'notes#new'`
-* views/notes/new.html.erbを作成
+  * `get 'foods/new' => 'foods#new'`
+* views/foods/new.html.erbを作成
 ```erb
-<div class="notes-new">
-  <div class="form notes-form">
+<div class="foods-new">
+  <div class="form foods-form">
     <div class="form-header">新規登録</div>
     <div class="form-body">
     </div>
@@ -23,77 +23,77 @@
 ```
 
 ## Page3
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * newアクション内に以下のコードを追加
 ```rb
-@note = Note.new
+@food = Food.new
 ```
-* views/notes/new.html.erbを編集
+* views/foods/new.html.erbを編集
 ```erb
 <%= form_tag %>
   <h2>タイトル</h2>
-  <input name="title" value="<%= @note.title %>">
+  <input name="title" value="<%= @food.title %>">
   <h2>内容</h2>
-  <textarea name="content"><%= @note.content %></textarea>
+  <textarea name="content"><%= @food.content %></textarea>
   <input type="submit" value="投稿">
 <% end %>
 ```
 
 ## Page4
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * 空のcreateアクションを作成
 * routes.rbを編集
-  * `post 'notes/create' => 'notes#create'`
-* views/notes/new.html.erbを編集
-  * `<%= form_tag 'notes/create' %>`
+  * `post 'foods/create' => 'foods#create'`
+* views/foods/new.html.erbを編集
+  * `<%= form_tag 'foods/create' %>`
 
 ## Page5
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * createアクションの中身を作成
 ```rb
-@note = Note.new(title: params[:title], content: params[:content])
-@note.save
-redirect_to "/notes/#{@note.id}"
+@food = Food.new(title: params[:title], content: params[:content])
+@food.save
+redirect_to "/foods/#{@food.id}"
 ```
 
 ## Page6
-* notes_controller.rbを編集
-  * `@notes = Note.all.order(created_at: :desc)`
+* foods_controller.rbを編集
+  * `@foods = Food.all.order(created_at: :desc)`
 
 ## Page7
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * 空のeditアクションを作成
 * routes.rbを編集
-  * `get 'notes/:id/edit' => 'notes#edit'`
-* views/notes/edit.html.erbを作成
+  * `get 'foods/:id/edit' => 'foods#edit'`
+* views/foods/edit.html.erbを作成
 ```erb
-<div class="notes-new">
-  <div class="notes-form">
+<div class="foods-new">
+  <div class="foods-form">
     <div class="form-header">編集</div>
   </div>
 </div>
 ```
-* views/notes/show.html.erbを編集
+* views/foods/show.html.erbを編集
   * editページへのリンクを追加
 ```erb
-<div class="note-edit">
-  <a href="/notes/<%= @note.id %>/edit">編集</a>
+<div class="food-edit">
+  <a href="/foods/<%= @food.id %>/edit">編集</a>
 </div>
 ```
 
 ## Page8
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * editアクション内に以下のコードを追加
 ```rb
-@note = Note.find_by(id: params[:id])
+@food = Food.find_by(id: params[:id])
 ```
-* views/notes/edit.html.erbを編集
+* views/foods/edit.html.erbを編集
 ```erb
 <%= form_tag do %>
   <h2>タイトル</h2>
-  <input name="title" value="<%= @note.title %>">
+  <input name="title" value="<%= @food.title %>">
   <h2>内容</h2>
-  <textarea name="content"><%= @note.content %></textarea>
+  <textarea name="content"><%= @food.content %></textarea>
   <input type="submit" value="更新">
 <% end %>
 ```
@@ -101,40 +101,40 @@ redirect_to "/notes/#{@note.id}"
 ## Page9
 * `$ rails console`
 ```
-> note = Note.find_by(id: 1)
-> note.title = ‘お手製ロールキャベツ’
-> note.save
+> food = Food.find_by(id: 1)
+> food.title = ‘お手製ロールキャベツ’
+> food.save
 ```
 * DBプレビューで確認
 
 ## Page10
 * routes.rbを編集
 ```rb
-post 'notes/:id/update' => 'notes#update'
+post 'foods/:id/update' => 'foods#update'
 ```
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * updateアクションを作成
 ```rb
 def update
-  @note = Note.find_by(id: params[:id])
-  @note.title = params[:title]
-  @note.content = params[:content]
-  @note.save
-  redirect_to "/notes/#{@note.id}"
+  @food = Food.find_by(id: params[:id])
+  @food.title = params[:title]
+  @food.content = params[:content]
+  @food.save
+  redirect_to "/foods/#{@food.id}"
 end
 ```
-* views/notes/edit.html.erbを編集
-  * `<%= form_tag "/notes/#{@note.id}/update" %>`
+* views/foods/edit.html.erbを編集
+  * `<%= form_tag "/foods/#{@food.id}/update" %>`
 
 ## Page11
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * 空のdestroyアクションを作成
 * routes.rbを編集
-  * `post 'notes/:id/destroy' => 'notes#destroy'`
-* views/notes/show.html.erbを編集
+  * `post 'foods/:id/destroy' => 'foods#destroy'`
+* views/foods/show.html.erbを編集
   * 編集ページへのリンクの下に以下を追加
 ```erb
-<%= form_tag "/notes/#{@note.id}/destroy" do %>
+<%= form_tag "/foods/#{@food.id}/destroy" do %>
   <input type="submit" value="削除">
 <% end %>
 ```
@@ -142,16 +142,16 @@ end
 ## Page12
 * `$ rails console`
 ```
-> note = Note.find_by(id: 1)
-> note.destroy
+> food = Food.find_by(id: 1)
+> food.destroy
 ```
 * DBプレビューで確認
 
 ## Page13
-* notes_controller.rbを編集
+* foods_controller.rbを編集
   * destroyアクションの中身を追加
 ```rb
-@note = Note.find_by(id: params[:id])
-@note.destroy
-redirect_to '/notes/index'
+@food = Food.find_by(id: params[:id])
+@food.destroy
+redirect_to '/foods/index'
 ```

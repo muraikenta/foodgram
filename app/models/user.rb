@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :notes
+  has_many :foods
   has_many :likes
 
   validates :name, presence: true

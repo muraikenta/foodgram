@@ -1,12 +1,12 @@
-/* notes/index ================================ */
-.notes-index {
+/* foods/index ================================ */
+.foods-index {
   padding: 50px;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.notes-list-item {
+.foods-list-item {
   overflow: hidden;
   width: 350px;
   height: 430px;
@@ -16,24 +16,24 @@
   border: 1px solid rgba(194, 203, 208, 0.36);
 }
 
-.notes-list-item img {
+.foods-list-item img {
   height: 350px;
   min-width: 100%;
 }
 
-.notes-list-item h3 {
+.foods-list-item h3 {
   margin: 10px 10px 15px;
   line-height: 1.2;
 }
 
 @media (max-width: 600px) {
-  .notes-index {
+  .foods-index {
     padding: 0;
   }
 }
 
-/* notes/show ================================ */
-.note-show {
+/* foods/show ================================ */
+.food-show {
   width: 700px;
   margin: 0 auto;
   padding: 100px;
@@ -41,23 +41,23 @@
   text-align: center;
 }
 
-.note-show .note {
+.food-show .food {
   overflow: hidden;
   display: inline-block;
   margin: 10px;
   text-align: center;
 }
 
-.note-show .note img {
+.food-show .food img {
   width: 500px;
   height: 500px;
 }
 
-.note-show form {
+.food-show form {
   display: inline;
 }
 
-.note-show input[type="submit"] {
+.food-show input[type="submit"] {
   padding: 0;
   background-color: white;
   border: none;
@@ -67,14 +67,14 @@
 }
 
 @media (max-width: 700px) {
-  .note-show {
+  .food-show {
     width: 100%;
     padding: 0;
   }
 }
 
-/* notes/show ================================ */
-.notes-new {
+/* foods/show ================================ */
+.foods-new {
   padding: 50px;
   background: rgba(194, 203, 208, 0.26);
   height: 100%;

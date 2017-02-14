@@ -154,7 +154,7 @@ end
 ```rb
 before_action :authenticate_user, only: [:edit_profile, :update_profile, :edit_password, :update_password]
 ```
-* notes_controller.rb
+* foods_controller.rb
 ```rb
 before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
 ```
@@ -165,7 +165,7 @@ before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy
 ```rb
 def forbid_login_user
   if @current_user
-    redirect_to '/notes/index'
+    redirect_to '/foods/index'
   end
 end
 ```

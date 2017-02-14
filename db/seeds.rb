@@ -11,7 +11,7 @@ user = User.find_or_create_by(email: 'info@prog-8.com') do |new_user|
   new_user.password = BCrypt::Password.create('password')
 end
 
-note = user.notes.create!([
+food = user.foods.create!([
   {
     title: 'クセになるおつまみ！タコの青唐辛子和え',
     content: 'タコを使用したおつまみです。 辛いものが好きな方はたまらない一品です。生姜はチューブのものでも代用できますが、独特の香りが強いので生のものを使用することをオススメします。 青唐辛子の量はお好みで足したり減らしたりして下さい。',

@@ -1,4 +1,4 @@
-class Note < ApplicationRecord
+class Food < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
 
