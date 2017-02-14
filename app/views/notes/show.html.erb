@@ -7,16 +7,13 @@
     </p>
     <p><%= @note.content %></p>
     <% if @current_user %>
-      <% like = Like.find_by(user_id: @current_user.id, note_id: @note.id) %>
-      <% if like %>
-        <%= form_tag "/likes/destroy" do %>
-          <input type="hidden" name="note_id" value="<%= @note.id %>">
+      <% if Like.find_by(user_id: @current_user.id, note_id: @note.id) %>
+        <%= form_tag "/notes/#{@note.id}/destroy_like" do %>
           <span class="fa fa-heart unlike"></span>
           <input type="submit" value="お気に入り済み（<%= @note.likes.count %>）" class="unlike">
         <% end %>
       <% else %>
-        <%= form_tag '/likes/create' do %>
-          <input type="hidden" name="note_id" value="<%= @note.id %>">
+        <%= form_tag "/notes/#{@note.id}/create_like" do %>
           <span class="fa fa-heart like"></span>
           <input type="submit" value="お気に入り（<%= @note.likes.count %>）" class="like">
         <% end %>
