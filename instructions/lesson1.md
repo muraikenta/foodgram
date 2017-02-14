@@ -72,6 +72,7 @@
   * `/about`で`'home#about'`にアクセスできるように
 * home_controller.rbを修正
   * 空のaboutアクションを作成
+* `localhost:3000/about`にアクセスして確認
 
 ## Page10
 ### CSSを適用しよう
