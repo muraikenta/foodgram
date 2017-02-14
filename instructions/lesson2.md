@@ -9,7 +9,7 @@
 
 ## Page2
 ### DBを作成しよう
-* `$ rails generate create_notes title:staring content:text`
+* `$ rails generate migration create_notes title:string content:text`
 * db/migrate以下にファイルができていることを確認
 * `$ rails db:migrate`
 * DBプレビューで空のテーブルができていることを確認
@@ -19,7 +19,7 @@
 * models/note.rbを作成
   * 以下のコードを貼り付け
 ```rb
-class Note < AplicationRecord
+class Note < ApplicationRecord
 end
 ```
 
@@ -36,6 +36,7 @@ end
 * `$ rails console`
 ```
 > note = Note.new(title: 'たこ焼き', content: 'これぞ大阪名物！')
+(メモ: 日本語入力ができないかも)
 > note.save
 > quit
 ```
@@ -53,7 +54,7 @@ end
 
 ## Page7
 ### 投稿一覧ページの準備をしよう
-* `$ rails generate controller note index`
+* `$ rails generate controller notes index`
 * views/notes/index.html.erbを編集
 ```erb
 <div class="notes-index">
@@ -78,6 +79,7 @@ end
   </div>
 </div>
 ```
+* 参考: [dummy_food.png](https://github.com/muraikenta/foodgram/blob/instruction/public/images/dummy_food.png)
 
 ## Page9
 ### アクションで変数を定義しよう
