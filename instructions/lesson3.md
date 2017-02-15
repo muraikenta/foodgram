@@ -23,18 +23,13 @@
 ```
 
 ## Page3
-* notes_controller.rbを編集
-  * newアクション内に以下のコードを追加
-```rb
-@note = Note.new
-```
 * views/notes/new.html.erbを編集
 ```erb
 <%= form_tag %>
   <h2>タイトル</h2>
-  <input name="title" value="<%= @note.title %>">
+  <input name="title">
   <h2>内容</h2>
-  <textarea name="content"><%= @note.content %></textarea>
+  <textarea name="content"></textarea>
   <input type="submit" value="投稿">
 <% end %>
 ```
