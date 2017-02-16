@@ -11,7 +11,7 @@
   * `gem 'bcrypt', '3.1.11'`
 * `bundle install`
 * users#create
-  * `@user.password = BCrypt::Password.create(params[:password])`
+  * `User.new(..., password: BCrypt::Password.create(params[:password]))`
 
 ## Page3
 * 暗号化したパスワードと比較しよう
