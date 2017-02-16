@@ -74,7 +74,7 @@ if @current_user.save
   flash[:notice] = 'アカウント情報を編集しました'
   redirect_to "/users/#{@current_user.id}"
 else
-  render ‘edit’
+  render 'edit_profile'
 end
 ```
 
